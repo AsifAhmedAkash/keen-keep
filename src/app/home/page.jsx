@@ -1,6 +1,7 @@
 // import React from 'react';
 
 import Banner from "./componets/Banner";
+// import CardHolder from "./componets/CardHolder";
 import FrndsSection from "./componets/FrndsSection";
 import KeenCard from "./componets/KeenCard";
 
@@ -10,6 +11,7 @@ const HomePage = () => {
             <Banner></Banner>
             <FrndsSection></FrndsSection>
             {/* <KeenCard></KeenCard> */}
+
         </div>
     );
 };

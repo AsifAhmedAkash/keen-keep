@@ -1,4 +1,4 @@
-export const friends = [
+const friends = [
     {
         "id": 1,
         "name": "John Doe",
@@ -96,3 +96,6 @@ export const friends = [
         "next_due_date": "2025-07-10"
     }
 ]
+
+
+export default friends;
