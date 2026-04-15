@@ -1,26 +1,87 @@
 // import React from 'react';
 
-const KeenCard = () => {
+import Image from "next/image";
+
+// example:
+// {
+//         "id": 1,
+//         "name": "John Doe",
+//         "picture": "https://example.com/photos/john.jpg",
+//         "email": "john@example.com",
+//         "days_since_contact": 12,
+//         "status": "overdue",
+//         "tags": ["college", "close friend"],
+//         "bio": "Met in university. Love hiking together.",
+//         "goal": 14,
+//         "next_due_date": "2025-07-20"
+//     },
+
+
+const KeenCard = ({ frnd }) => {
+
+
+    const { name, picture, days_since_contact, tags, status } = frnd;
     return (
-        <div className="card bg-base-100 w-96 shadow-sm">
+        <div className="card bg-base-100 shadow-sm flex flex-col items-center justify-center text-center p-6">
             <figure>
-                {/* <img
-                    src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                    alt="Shoes" /> */}
-            </figure>
-            <div className="card-body">
-                <h2 className="card-title">
-                    Card Title
-                    <div className="badge badge-secondary">NEW</div>
-                </h2>
-                <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-                <div className="card-actions justify-end">
-                    <div className="badge badge-outline">Fashion</div>
-                    <div className="badge badge-outline">Products</div>
+
+                <div className="w-[100px] h-[100px] rounded-full overflow-hidden">
+                    <Image
+                        src={picture}
+                        alt={name}
+                        width={80}
+                        height={80}
+                        className="w-full h-full object-cover"
+                    />
                 </div>
+
+            </figure>
+            <div className="card-body flex flex-col items-center justify-center text-center">
+                <h2 className="card-title">
+                    {name}
+
+                </h2>
+                <p>{days_since_contact}d ago</p>
+                <div className="flex gap-2">
+                    {tags.map((tag, index) => (
+                        <div key={index} className="badge badge-success badge-soft">
+                            {tag}
+                        </div>
+                    ))}
+                </div>
+
+                <Badge status={status} />
+
+
             </div>
         </div>
     );
 };
+
+function Badge({ status }) {
+    let badgeClass = "badge";
+    let label = status;
+
+    switch (status.toLowerCase()) {
+        case "on track":
+            badgeClass += " badge-success";
+            label = "on track";
+            break;
+        case "almost due":
+            badgeClass += " badge-warning";
+            label = "almost due";
+            break;
+        case "overdue":
+            badgeClass += " badge-error";
+            label = "overdue";
+            break;
+        default:
+            badgeClass += " badge-outline";
+            break;
+    }
+
+    return <div className={badgeClass}>{label}</div>;
+}
+
 
 export default KeenCard;

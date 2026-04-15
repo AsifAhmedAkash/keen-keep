@@ -1,13 +1,15 @@
+'use client'
 // import React from 'react';
 import { FaPlus } from "react-icons/fa";
-
+import { useFriends } from "@/context/FriendsContext";
 
 const Banner = () => {
+    const { friends } = useFriends();
 
     const stats = [
         {
             title: "Total Friends",
-            value: 10,
+            value: friends.length,
         },
         {
             title: "On Track",
@@ -23,7 +25,7 @@ const Banner = () => {
         },
     ];
     return (
-        <div className="hero bg-base-200 min-h-screen">
+        <div className="hero bg-base-200 pt-20 pb-10">
             <div className="text-center">
                 <div className="hero-content">
                     <div className="max-w-md">
@@ -47,6 +49,7 @@ const Banner = () => {
                     </div>
                 </div>
             </div>
+            <hr className="border-t border-[#E9E9E9]" />
 
         </div>
     );
