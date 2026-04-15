@@ -24,6 +24,12 @@ const Banner = () => {
             value: 12,
         },
     ];
+
+    //for debuging
+    const showDB = () => {
+        console.log(friends);
+    }
+
     return (
         <div className="hero bg-base-200 pt-20 pb-10">
             <div className="text-center">
@@ -34,7 +40,7 @@ const Banner = () => {
                             Your personal shelf of meaningful connections. Browse, tend, and nurture the
                             relationships that matter most.
                         </p>
-                        <button className="btn btn-success"><FaPlus />Add a Friend</button>
+                        <button onClick={showDB} className="btn btn-success"><FaPlus />Add a Friend</button>
                     </div>
                 </div>
                 <div className="stats shadow">

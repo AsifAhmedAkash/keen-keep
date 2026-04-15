@@ -101,6 +101,7 @@ const CardDetailsPage = () => {
             friendId: friend.id,
             type: mode,
             createdAt: today,
+            goal: friend.goal,
         });
 
 
