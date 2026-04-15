@@ -1,7 +1,7 @@
 // import React from 'react';
 
 import Image from "next/image";
-
+import Link from "next/link";
 // example:
 // {
 //         "id": 1,
@@ -20,41 +20,47 @@ import Image from "next/image";
 const KeenCard = ({ frnd }) => {
 
 
-    const { name, picture, days_since_contact, tags, status } = frnd;
+    const { id, name, picture, days_since_contact, tags, status } = frnd;
     return (
-        <div className="card bg-base-100 shadow-sm flex flex-col items-center justify-center text-center p-6">
-            <figure>
+        <Link href={`/card/${id}`}>
+            <div className="cursor-pointer">
+                <div className="card bg-base-100 shadow-sm flex flex-col items-center justify-center text-center p-6">
+                    <figure>
 
-                <div className="w-[100px] h-[100px] rounded-full overflow-hidden">
-                    <Image
-                        src={picture}
-                        alt={name}
-                        width={80}
-                        height={80}
-                        className="w-full h-full object-cover"
-                    />
-                </div>
-
-            </figure>
-            <div className="card-body flex flex-col items-center justify-center text-center">
-                <h2 className="card-title">
-                    {name}
-
-                </h2>
-                <p>{days_since_contact}d ago</p>
-                <div className="flex gap-2">
-                    {tags.map((tag, index) => (
-                        <div key={index} className="badge badge-success badge-soft">
-                            {tag}
+                        <div className="w-[100px] h-[100px] rounded-full overflow-hidden">
+                            <Image
+                                src={picture}
+                                alt={name}
+                                width={80}
+                                height={80}
+                                className="w-full h-full object-cover"
+                            />
                         </div>
-                    ))}
+
+                    </figure>
+                    <div className="card-body flex flex-col items-center justify-center text-center">
+                        <h2 className="card-title">
+                            {name}
+
+                        </h2>
+                        <p>{days_since_contact}d ago</p>
+                        <div className="flex gap-2">
+                            {tags.map((tag, index) => (
+                                <div key={index} className="badge badge-success badge-soft">
+                                    {tag}
+                                </div>
+                            ))}
+                        </div>
+
+                        <Badge status={status} />
+
+
+                    </div>
                 </div>
-
-                <Badge status={status} />
-
-
             </div>
-        </div>
+        </Link>
+
+
     );
 };
 
