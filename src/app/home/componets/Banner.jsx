@@ -2,9 +2,31 @@
 // import React from 'react';
 import { FaPlus } from "react-icons/fa";
 import { useFriends } from "@/context/FriendsContext";
+import { getAllInteractionsFromLocalDB } from "@/utils/addLocalDB"
+
+const getInteractionsThisMonth = () => {
+    const all = getAllInteractionsFromLocalDB();
+
+    const now = new Date();
+    const currentMonth = now.getMonth();
+    const currentYear = now.getFullYear();
+
+    return all.filter(item => {
+        const date = new Date(item.createdAt);
+
+        return (
+            date.getMonth() === currentMonth &&
+            date.getFullYear() === currentYear
+        );
+    });
+};
 
 const Banner = () => {
     const { friends } = useFriends();
+
+    // const interactionsThisMonth = getInteractionsThisMonth().length;
+
+    const interactionsThisMonth = getInteractionsThisMonth().length;
 
     const stats = [
         {
@@ -13,17 +35,21 @@ const Banner = () => {
         },
         {
             title: "On Track",
-            value: 3,
+            value: friends.filter(f => f.status === "on track").length,
         },
         {
             title: "Need Attention",
-            value: 4,
+            value: friends.filter(
+                f => f.status === "overdue" || f.status === "almost due"
+            ).length,
         },
         {
             title: "Interactions This Month",
-            value: 12,
+            value: interactionsThisMonth,
         },
     ];
+
+
 
     //for debuging
     const showDB = () => {

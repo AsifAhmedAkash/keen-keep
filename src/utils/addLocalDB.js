@@ -20,6 +20,23 @@ const getAllInteractionsFromLocalDB = () => {
      }
     */
 
+// const getInteractionsThisMonth = () => {
+//     const all = getAllInteractionsFromLocalDB();
+
+//     const now = new Date();
+//     const currentMonth = now.getMonth();
+//     const currentYear = now.getFullYear();
+
+//     return all.filter(item => {
+//         const date = new Date(item.createdAt);
+
+//         return (
+//             date.getMonth() === currentMonth &&
+//             date.getFullYear() === currentYear
+//         );
+//     });
+// };
+
 const addInteractionToLocalDB = (interaction) => {
     const { friendId, goal } = interaction;
 
@@ -64,5 +81,5 @@ export {
     getAllInteractionsFromLocalDB,
     addInteractionToLocalDB,
     clearInteractionDB,
-
+    // getInteractionsThisMonth
 };
