@@ -11,7 +11,7 @@ const FrndsSection = () => {
     return (
         <div className="mx-auto max-w-277.5 mt-10 mb-20">
             <h2 className="font-semibold text-3xl ">Your Friends</h2>
-            <div className=" pt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+            <div className=" pt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 items-stretch">
                 {friends.map((frnd, index) => (
 
                     <KeenCard key={index} frnd={frnd}></KeenCard>

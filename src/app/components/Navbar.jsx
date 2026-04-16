@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { FaHome, FaClock, FaChartBar } from "react-icons/fa";
 import Link from "next/link";
+import Image from "next/image";
 
 const Navbar = () => {
     const pathname = usePathname();
@@ -31,19 +32,27 @@ const Navbar = () => {
                 <div className="flex-1">
 
                     <Link href="/home" className="btn btn-ghost text-[24px]">
-                        Keen<span className="font-normal">Keeper</span>
+                        <Image
+                            src="/images/KeenKeeper_navbar.png"
+                            alt="KeenKeeper Logo"
+                            width={200}
+                            height={48}
+                            className="object-contain p-2"
+                        />
                     </Link>
                 </div>
                 <div className="flex-none">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu menu-horizontal px-1 gap-1">
                         {navLinks.map((link, index) => {
                             const Icon = link.icon;
                             const isActive = pathname === link.path;
                             return (
-                                <li className={`btn ${!isActive ? "btn-ghost" : "btn-success"}`} key={index}>
+                                <li key={index}>
                                     <Link
                                         href={link.path}
-                                        className={`flex items-center gap-2 px-2 py-1 rounded-md ${isActive ? "text-white" : "text-[#64748B]"
+                                        className={`flex items-center gap-2 px-4 py-2 rounded-md font-medium ${isActive
+                                            ? "bg-[#244D3F] text-white"
+                                            : "text-[#64748B] hover:bg-gray-100"
                                             }`}
                                     >
                                         <Icon />
@@ -52,7 +61,6 @@ const Navbar = () => {
                                 </li>
                             );
                         })}
-
                     </ul>
                 </div>
             </div>

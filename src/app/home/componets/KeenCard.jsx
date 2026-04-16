@@ -16,46 +16,35 @@ import Link from "next/link";
 //         "next_due_date": "2025-07-20"
 //     },
 
-
 const KeenCard = ({ frnd }) => {
 
 
     const { id, name, picture, days_since_contact, tags, status } = frnd;
     return (
-        <Link href={`/card/${id}`}>
-            <div className="cursor-pointer">
-                <div className="card bg-base-100 shadow-sm flex flex-col items-center justify-center text-center p-6">
-                    <figure>
-
-                        <div className="w-[100px] h-[100px] rounded-full overflow-hidden">
-                            <Image
-                                src={picture}
-                                alt={name}
-                                width={80}
-                                height={80}
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-
-                    </figure>
-                    <div className="card-body flex flex-col items-center justify-center text-center">
-                        <h2 className="card-title">
-                            {name}
-
-                        </h2>
-                        <p>{days_since_contact}d ago</p>
-                        <div className="flex gap-2">
-                            {tags.map((tag, index) => (
-                                <div key={index} className="badge badge-success badge-soft">
-                                    {tag}
-                                </div>
-                            ))}
-                        </div>
-
-                        <Badge status={status} />
-
-
+        <Link href={`/card/${id}`} className="h-full">
+            <div className="card bg-base-100 shadow-sm flex flex-col items-center justify-center text-center p-6 h-[320px] cursor-pointer">
+                <figure>
+                    <div className="w-[100px] h-[100px] rounded-full overflow-hidden">
+                        <Image
+                            src={picture}
+                            alt={name}
+                            width={100}
+                            height={100}
+                            className="w-full h-full object-cover"
+                        />
                     </div>
+                </figure>
+                <div className="card-body flex flex-col items-center justify-center text-center">
+                    <h2 className="card-title">{name}</h2>
+                    <p>{days_since_contact}d ago</p>
+                    <div className="flex gap-2 flex-wrap justify-center">
+                        {tags.map((tag, index) => (
+                            <div key={index} className="badge badge-success badge-soft rounded-full">
+                                {tag}
+                            </div>
+                        ))}
+                    </div>
+                    <Badge status={status} />
                 </div>
             </div>
         </Link>
@@ -65,7 +54,7 @@ const KeenCard = ({ frnd }) => {
 };
 
 function Badge({ status }) {
-    let badgeClass = "badge";
+    let badgeClass = "badge rounded-full";
     let label = status;
 
     switch (status.toLowerCase()) {
