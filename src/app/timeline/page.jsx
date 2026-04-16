@@ -1,30 +1,27 @@
-// import React from 'react';
+"use client";
+
+import { useFriends } from "@/context/FriendsContext";
+import HistoryCard from "./components/HistoryCard";
+import { useTimeline } from "@/context/TimeLineContext";
 
 const TimeLinePage = () => {
+    const { timeline } = useTimeline();
+    const { friends } = useFriends();
+
+    const allhistory = [...timeline];
+    // console.log("all history ", allhistory);
+
+
     return (
-        <div>
-
-            <h2>This is timeline page</h2>
-
-            <div className="card bg-base-100 w-96 shadow-sm">
-                <figure>
-                    {/* <img
-                        src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                        alt="Shoes" /> */}
-                </figure>
-                <div className="card-body">
-                    <h2 className="card-title">
-                        Card Title
-                        <div className="badge badge-secondary">NEW</div>
-                    </h2>
-                    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-                    <div className="card-actions justify-end">
-                        <div className="badge badge-outline">Fashion</div>
-                        <div className="badge badge-outline">Products</div>
-                    </div>
-                </div>
+        <div className="mx-auto max-w-277.5  w-[60%]">
+            <h2>Timeline</h2>
+            <div className="grid gap-1">
+                {allhistory.map((entry, index) => (
+                    <HistoryCard key={index} data={entry} />
+                ))}
             </div>
         </div>
+
     );
 };
 

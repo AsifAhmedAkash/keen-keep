@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { FriendsProvider } from "@/context/FriendsContext";
-
+import { TimelineProvider } from "@/context/TimeLineContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +29,10 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <Navbar></Navbar>
         <FriendsProvider>
-          {children}
+          <TimelineProvider>
+            {children}
+          </TimelineProvider>
+
         </FriendsProvider>
 
         <Footer></Footer>
