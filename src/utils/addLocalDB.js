@@ -4,6 +4,7 @@ const FRIENDS_DB = "friendsDB";
 
 
 const getAllInteractionsFromLocalDB = () => {
+    if (typeof window === "undefined") return [];
     const data = localStorage.getItem(INTERACTION_DB);
 
     if (data) return JSON.parse(data);
