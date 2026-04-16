@@ -6,7 +6,15 @@ import Link from "next/link";
 
 
 const FrndsSection = () => {
-    const { friends } = useFriends();
+    const { friends, loading } = useFriends();
+
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center min-h-[200px]">
+                <span className="loading loading-spinner loading-xl"></span>
+            </div>
+        );
+    }
 
     return (
         <div className="mx-auto max-w-277.5 mt-10 mb-20">

@@ -28,7 +28,7 @@ const Navbar = () => {
 
     return (
         <div className=" bg-base-100 shadow-sm ">
-            <div className="navbar max-w-360 mx-auto">
+            <div className="navbar max-w-360 mx-auto py-[23.5px]">
                 <div className="flex-1">
 
                     <Link href="/home" className="btn btn-ghost text-[24px]">
@@ -37,7 +37,7 @@ const Navbar = () => {
                             alt="KeenKeeper Logo"
                             width={200}
                             height={48}
-                            className="object-contain p-2"
+                            className="object-contain"
                         />
                     </Link>
                 </div>

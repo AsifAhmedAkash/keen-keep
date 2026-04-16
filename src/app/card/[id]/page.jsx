@@ -1,6 +1,7 @@
 'use client'
 import { useFriends } from "@/context/FriendsContext";
 import { addInteractionToLocalDB } from "@/utils/addLocalDB";
+import { toast } from "react-toastify";
 
 
 import Image from "next/image";
@@ -98,6 +99,7 @@ const CardDetailsPage = () => {
             next_due_date: nextDue.toISOString().split("T")[0],
             status: computeStatus(0, friend.goal),
         });
+        toast.success(`${mode.charAt(0).toUpperCase() + mode.slice(1)} logged with ${name}!`);
     };
 
     return (
