@@ -172,7 +172,7 @@ const CardDetailsPage = () => {
                     </div>
 
                     {/* relgoals */}
-                    <div className=" rounded-2xl    border-gray-50  border border-gray-50-gray-50  shadow-sm px-6 py-5">
+                    <div className=" rounded-2xl  border-gray-50  border  shadow-sm px-6 py-5">
                         <div className="flex items-center justify-between mb-2">
                             <h2 className="text-base font-semibold ">Relationship Goal</h2>
                             <button
