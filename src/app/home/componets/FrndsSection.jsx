@@ -3,18 +3,16 @@
 import { useFriends } from "@/context/FriendsContext";
 import KeenCard from "./KeenCard";
 import Link from "next/link";
+import { useEffect } from "react";
 
 
 const FrndsSection = () => {
-    const { friends, loading } = useFriends();
+    const { friends, syncFriends } = useFriends();
 
-    if (loading) {
-        return (
-            <div className="flex items-center justify-center min-h-[200px]">
-                <span className="loading loading-spinner loading-xl"></span>
-            </div>
-        );
-    }
+    // Sync friends data when component mounts
+    useEffect(() => {
+        syncFriends();
+    }, [syncFriends]);
 
     return (
         <div className="mx-auto max-w-277.5 mt-10 mb-20">

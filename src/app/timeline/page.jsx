@@ -3,11 +3,18 @@
 import { useFriends } from "@/context/FriendsContext";
 import HistoryCard from "./components/HistoryCard";
 import { useTimeline } from "@/context/TimeLineContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const TimeLinePage = () => {
-    const { timeline } = useTimeline();
-    const { friends } = useFriends();
+    const { timeline, syncTimeline } = useTimeline();
+    const { friends, syncFriends } = useFriends();
+
+    // Sync data when component mounts
+    useEffect(() => {
+        syncTimeline();
+        syncFriends();
+    }, [syncTimeline, syncFriends]);
+
 
     const [sortOrder, setSortOrder] = useState("desc"); // desc = newest first
     const [filterFriend, setFilterFriend] = useState("all");

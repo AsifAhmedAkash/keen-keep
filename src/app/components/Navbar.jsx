@@ -5,6 +5,7 @@ import { FaHome, FaClock, FaChartBar } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 
+
 const Navbar = () => {
     const pathname = usePathname();
 

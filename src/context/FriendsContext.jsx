@@ -17,6 +17,11 @@ export const FriendsProvider = ({ children }) => {
         return friendsData;
     });
 
+    const syncFriends = () => {
+        const stored = localStorage.getItem(FRIENDS_DB);
+        if (stored) setFriends(JSON.parse(stored));
+    };
+
     const updateFriend = (updatedFriend) => {
         setFriends(prev => {
             const updated = prev.map(f =>
@@ -28,7 +33,7 @@ export const FriendsProvider = ({ children }) => {
     };
 
     return (
-        <FriendsContext.Provider value={{ friends, setFriends, updateFriend }}>
+        <FriendsContext.Provider value={{ friends, setFriends, updateFriend, syncFriends }}>
             {children}
         </FriendsContext.Provider>
     );

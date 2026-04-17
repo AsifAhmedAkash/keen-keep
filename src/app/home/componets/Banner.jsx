@@ -2,7 +2,8 @@
 // import React from 'react';
 import { FaPlus } from "react-icons/fa";
 import { useFriends } from "@/context/FriendsContext";
-import { getAllInteractionsFromLocalDB } from "@/utils/addLocalDB"
+import { getAllInteractionsFromLocalDB } from "@/utils/addLocalDB";
+import { useEffect } from "react";
 
 const getInteractionsThisMonth = () => {
     const all = getAllInteractionsFromLocalDB();
@@ -22,7 +23,12 @@ const getInteractionsThisMonth = () => {
 };
 
 const Banner = () => {
-    const { friends } = useFriends();
+    const { friends, syncFriends } = useFriends();
+
+    // Sync friends data when component mounts
+    useEffect(() => {
+        syncFriends();
+    }, [syncFriends]);
 
     // const interactionsThisMonth = getInteractionsThisMonth().length;
 

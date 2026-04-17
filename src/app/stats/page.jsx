@@ -2,6 +2,7 @@
 "use client";
 import { useTimeline } from "@/context/TimeLineContext";
 import { PieChart, Pie, Cell, Legend, Tooltip } from "recharts";
+import { useEffect } from "react";
 
 const COLORS = {
     text: "#a855f7",
@@ -10,7 +11,12 @@ const COLORS = {
 };
 
 const StatsPage = () => {
-    const { timeline } = useTimeline();
+    const { timeline, syncTimeline } = useTimeline();
+
+    // Sync data when component mounts
+    useEffect(() => {
+        syncTimeline();
+    }, [syncTimeline]);
 
     const allhistory = [...timeline];
     // console.log(allhistory);

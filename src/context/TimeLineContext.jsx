@@ -12,6 +12,11 @@ export const TimelineProvider = ({ children }) => {
         return getAllInteractionsFromLocalDB();
     });
 
+    const syncTimeline = () => {
+        const data = getAllInteractionsFromLocalDB();
+        setTimeline(data);
+    };
+
     const addToTimeline = (entry) => {
         setTimeline(prev => {
             const updated = [...prev, entry];
@@ -21,7 +26,7 @@ export const TimelineProvider = ({ children }) => {
     };
 
     return (
-        <TimelineContext.Provider value={{ timeline, addToTimeline }}>
+        <TimelineContext.Provider value={{ timeline, addToTimeline, syncTimeline }}>
             {children}
         </TimelineContext.Provider>
     );
