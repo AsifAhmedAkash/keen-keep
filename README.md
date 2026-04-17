@@ -8,7 +8,7 @@ Keen Keep is a relationship management tool that helps you stay connected with y
 
 ## Live Demo
 
-🚀 **[View Live Application](https://keen-keep-pui6fjwt7-asifahmedakash32-8581s-projects.vercel.app)**
+🚀 **[View Live Application]([https://keen-keep-pui6fjwt7-asifahmedakash32-8581s-projects.vercel.app](https://keen-keep-g45b5av9c-asifahmedakash32-8581s-projects.vercel.app/))**
 
 Experience Keen Keep in action! The live demo showcases all features including friend management, timeline tracking, and analytics.
 
