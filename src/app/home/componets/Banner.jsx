@@ -72,7 +72,7 @@ const Banner = () => {
                             Your personal shelf of meaningful connections. Browse, tend, and nurture the
                             relationships that matter most.
                         </p>
-                        <button onClick={showDB} className="btn bg-[#244D3F]" ><FaPlus />Add a Friend</button>
+                        <button onClick={showDB} className="btn bg-[#244D3F]" ><FaPlus /><span className="text-white">Add a Friend</span></button>
                     </div>
                 </div>
                 <div className="stats shadow">
